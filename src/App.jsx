@@ -14,6 +14,10 @@ function App() {
     setTodo((todo) => [item, ...todo]);
   }
 
+  function deleteItem(id) {
+    setTodo((todo) => todo.filter((item) => item.id !== id));
+  }
+
   // stores cursor Y position
   const [dragY, setDragY] = useState(0);
   // useRef is used to reference an element and then work with it method or function directly.
@@ -119,6 +123,7 @@ function App() {
             handleDrag={handleDrag}
             draggingIndex={draggingIndex}
             dragY={dragY}
+            deleteItem={deleteItem}
           />
           <Card
             day="later"
@@ -130,6 +135,7 @@ function App() {
             handleDrag={handleDrag}
             draggingIndex={draggingIndex}
             dragY={dragY}
+            deleteItem={deleteItem}
           />
         </div>
       </div>

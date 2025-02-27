@@ -2,6 +2,7 @@ import { useState } from "react";
 import calendar from "../assets/calendar.svg";
 import checkbox from "../assets/checkbox.svg";
 import checked from "../assets/checked.svg";
+import deleteIcon from "../assets/delete.svg";
 import DragIcon from "./DragIcon";
 
 // sort task, so that completed task goes down.
@@ -19,6 +20,7 @@ export default function Card({
   handleDrag,
   draggingIndex,
   dragY,
+  deleteItem,
 }) {
   const filterList = (() => {
     return todo
@@ -53,6 +55,7 @@ export default function Card({
             handleDrag={handleDrag}
             draggingIndex={draggingIndex}
             dragY={dragY}
+            deleteItem={deleteItem}
           />
         )}
       </div>
@@ -70,6 +73,7 @@ function TodoList({
   handleDrag,
   draggingIndex,
   dragY,
+  deleteItem,
 }) {
   return (
     <ul onDragOver={(e) => e.preventDefault()}>
@@ -93,6 +97,7 @@ function TodoList({
               }
             >
               <DragIcon />
+              <img src={deleteIcon} onClick={() => deleteItem(item.id)} />
               <div className="todo-span" onClick={() => handleClick(item.id)}>
                 <img src={item.completed ? checked : checkbox}></img>
                 <span className="todo-label">{item.action}</span>
