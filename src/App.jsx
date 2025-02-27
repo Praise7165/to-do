@@ -9,6 +9,11 @@ function App() {
   const [todo, setTodo] = useState([]);
   const [draggingIndex, setDraggingIndex] = useState(null);
 
+  function handleAddItem(item) {
+    // we approach setting item this way, so as not to mutate the todo array.
+    setTodo((todo) => [item, ...todo]);
+  }
+
   // stores cursor Y position
   const [dragY, setDragY] = useState(0);
   // useRef is used to reference an element and then work with it method or function directly.
@@ -35,7 +40,7 @@ function App() {
       id: Date.now(),
     };
 
-    todo.unshift(newItem);
+    handleAddItem(newItem);
 
     setAction("");
     setDay("today");
