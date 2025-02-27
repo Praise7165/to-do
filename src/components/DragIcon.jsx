@@ -17,6 +17,7 @@ const DragIcon = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        className="path"
       />
     </svg>
   );

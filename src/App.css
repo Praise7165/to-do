@@ -144,6 +144,12 @@ h3 {
   position: relative;
 }
 
+.todo-item:hover {
+  .path {
+    stroke: #131313;
+  }
+}
+
 /*
 .todo-item:active,
 .todo-item:focus {
