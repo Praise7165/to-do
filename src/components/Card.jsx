@@ -4,24 +4,14 @@ import checkbox from "../assets/checkbox.svg";
 import checked from "../assets/checked.svg";
 import deleteIcon from "../assets/delete.svg";
 import DragIcon from "./DragIcon";
+import DeleteIcon from "./Delete";
 
 // sort task, so that completed task goes down.
 // todoList.sort((a, b) => a.completed - b.completed);
 
 // console.log(todoList);
 
-export default function Card({
-  day,
-  todo,
-  handleClick,
-  handleDragEnter,
-  handleDragStart,
-  handleDrop,
-  handleDrag,
-  draggingIndex,
-  dragY,
-  deleteItem,
-}) {
+export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
   const filterList = (() => {
     return todo
       .sort((a, b) => a.completed - b.completed)
@@ -49,13 +39,8 @@ export default function Card({
             day={day}
             todo={todo}
             handleClick={handleClick}
-            handleDragEnter={handleDragEnter}
-            handleDragStart={handleDragStart}
-            handleDrop={handleDrop}
-            handleDrag={handleDrag}
-            draggingIndex={draggingIndex}
-            dragY={dragY}
             deleteItem={deleteItem}
+            deleteId={deleteId}
           />
         )}
       </div>
@@ -63,45 +48,25 @@ export default function Card({
   );
 }
 
-function TodoList({
-  day,
-  todo,
-  handleClick,
-  handleDragEnter,
-  handleDragStart,
-  handleDrop,
-  handleDrag,
-  draggingIndex,
-  dragY,
-  deleteItem,
-}) {
+function TodoList({ day, todo, handleClick, deleteItem, deleteId }) {
   return (
     <ul onDragOver={(e) => e.preventDefault()}>
-      {todo.map((item, index) => {
+      {todo.map((item) => {
         if (item.pri === day)
           return (
             <li
               key={item.id}
-              className={`todo-item ${
-                index === draggingIndex ? "dragging" : ""
-              }`}
-              draggable={true}
-              onDragStart={(e) => handleDragStart(e, index)}
-              onDrag={(e) => handleDrag(e)}
-              onDragEnter={(e) => handleDragEnter(e, index)}
-              onDragEnd={handleDrop}
-              style={
-                index === draggingIndex
-                  ? { transform: `translateY(${dragY}px)` }
-                  : {}
-              }
+              className={`todo-item ${deleteId === item.id ? "swipe" : ""}`}
             >
               <DragIcon />
-              <img src={deleteIcon} onClick={() => deleteItem(item.id)} />
+
               <div className="todo-span" onClick={() => handleClick(item.id)}>
                 <img src={item.completed ? checked : checkbox}></img>
                 <span className="todo-label">{item.action}</span>
               </div>
+              <span onClick={() => deleteItem(item.id)}>
+                <DeleteIcon />
+              </span>
             </li>
           );
       })}

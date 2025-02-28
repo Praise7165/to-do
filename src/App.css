@@ -140,8 +140,11 @@ h3 {
   align-items: center;
   justify-content: stretch;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  position: relative;
+  transition: all 0.3s linear;
+}
+
+.swipe {
+  transform: translateX(24px);
 }
 
 .todo-item:hover {
@@ -149,17 +152,6 @@ h3 {
     stroke: #131313;
   }
 }
-
-/*
-.todo-item:active,
-.todo-item:focus {
-  transform: scale(1.05);
-
-  .todo-span {
-    background-color: hsl(204, 36%, 95%);
-  }
-}
-*/
 
 .todo-item.dragging {
   opacity: 0.8;
@@ -171,6 +163,7 @@ h3 {
 
 .todo-span {
   margin-left: 0.25rem;
+  margin-right: 0.15rem;
   flex-grow: 1;
   padding: 0.5rem 0.75rem;
   background-color: hsl(204, 33%, 97%);
@@ -186,6 +179,14 @@ h3 {
 
 .drag-icon {
   cursor: grab;
+}
+
+.delete {
+  fill: hsl(0, 1%, 79%);
+}
+
+.delete:hover {
+  fill: #ff0000;
 }
 
 @media screen and (max-width: 991px) {
