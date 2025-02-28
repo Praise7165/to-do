@@ -2,7 +2,6 @@ import { useState } from "react";
 import calendar from "../assets/calendar.svg";
 import checkbox from "../assets/checkbox.svg";
 import checked from "../assets/checked.svg";
-import deleteIcon from "../assets/delete.svg";
 import DragIcon from "./DragIcon";
 import DeleteIcon from "./Delete";
 
@@ -13,9 +12,7 @@ import DeleteIcon from "./Delete";
 
 export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
   const filterList = (() => {
-    return todo
-      .sort((a, b) => a.completed - b.completed)
-      .filter((item) => item.pri === day);
+    return todo.filter((item) => item.pri === day);
   })();
 
   // console.log(todo);
@@ -64,7 +61,7 @@ function TodoList({ day, todo, handleClick, deleteItem, deleteId }) {
                 <img src={item.completed ? checked : checkbox}></img>
                 <span className="todo-label">{item.action}</span>
               </div>
-              <span onClick={() => deleteItem(item.id)}>
+              <span className="delete-icon" onClick={() => deleteItem(item.id)}>
                 <DeleteIcon />
               </span>
             </li>

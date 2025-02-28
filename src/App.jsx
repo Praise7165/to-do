@@ -1,13 +1,42 @@
 import "./App.css";
 import Header from "./components/Header";
 import Card from "./components/Card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+let todoList = [
+  { pri: "today", action: "Go to school", completed: true, id: 1 },
+  { pri: "later", action: "Clean kitchen", completed: false, id: 2 },
+  { pri: "today", action: "Wear clothes", completed: false, id: 3 },
+  { pri: "later", action: "Cook rice", completed: true, id: 4 },
+  { pri: "today", action: "Move back home", completed: false, id: 5 },
+  { pri: "today", action: "Learn Javascript", completed: false, id: 9 },
+  { pri: "today", action: "Resolve issue at bank", completed: false, id: 8 },
+  { pri: "today", action: "Wake up by 4am", completed: false, id: 7 },
+  { pri: "later", action: "Visit vegas", completed: false, id: 6 },
+];
 
 function App() {
   const [action, setAction] = useState("");
   const [day, setDay] = useState("today");
-  const [todo, setTodo] = useState([]);
+
+  // general todo
+  const [todo, setTodo] = useState(todoList);
+  const [sortedTodo, setSortedTodo] = useState([]);
+
+  // to disable sorting temporarily
+  const [pauseSorting, setPauseSorting] = useState(false);
+
+  // to track deleted item
   const [deleteId, setDeleteId] = useState(null);
+
+  // sort todos whenever main todos array changes (unless paused)
+  useEffect(() => {
+    if (!pauseSorting) {
+      let sortedList = [...todo].sort((a, b) => a.completed - b.completed);
+
+      setSortedTodo(sortedList);
+    }
+  }, [todo, pauseSorting]);
 
   function handleAddItem(item) {
     // we approach setting item this way, so as not to mutate the todo array.
@@ -25,11 +54,23 @@ function App() {
   }
 
   function handleClick(id) {
+    setPauseSorting(true);
+
     setTodo((prevTodo) =>
-      prevTodo.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      prevTodo.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
       )
     );
+
+    setSortedTodo((prevTodo) =>
+      prevTodo.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
+    );
+
+    setTimeout(() => {
+      setPauseSorting(false);
+    }, 500);
   }
 
   function handleSubmit(e) {
@@ -72,14 +113,14 @@ function App() {
           />
           <Card
             day="today"
-            todo={todo}
+            todo={sortedTodo}
             handleClick={handleClick}
             deleteItem={deleteItem}
             deleteId={deleteId}
           />
           <Card
             day="later"
-            todo={todo}
+            todo={sortedTodo}
             handleClick={handleClick}
             deleteItem={deleteItem}
             deleteId={deleteId}
@@ -91,17 +132,3 @@ function App() {
 }
 
 export default App;
-
-/*
-let todoList = [
-  { pri: "today", action: "Go to school", completed: true, id: 1 },
-  { pri: "later", action: "Clean kitchen", completed: false, id: 2 },
-  { pri: "today", action: "Wear clothes", completed: false, id: 3 },
-  { pri: "later", action: "Cook rice", completed: true, id: 4 },
-  { pri: "today", action: "Move back home", completed: false, id: 5 },
-  { pri: "today", action: "Learn Javascript", completed: false, id: 9 },
-  { pri: "today", action: "Resolve issue at bank", completed: false, id: 8 },
-  { pri: "today", action: "Wake up by 4am", completed: false, id: 7 },
-  { pri: "later", action: "Visit vegas", completed: false, id: 6 },
-];
-*/
