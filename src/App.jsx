@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import { useState, useEffect } from "react";
 
-/*
 let todoList = [
   { pri: "today", action: "Go to school", completed: true, id: 1 },
   { pri: "later", action: "Clean kitchen", completed: false, id: 2 },
@@ -15,14 +14,13 @@ let todoList = [
   { pri: "today", action: "Wake up by 4am", completed: false, id: 7 },
   { pri: "later", action: "Visit vegas", completed: false, id: 6 },
 ];
-*/
 
 function App() {
   const [action, setAction] = useState("");
   const [day, setDay] = useState("today");
 
   // general todo
-  const [todo, setTodo] = useState([]);
+  const [todo, setTodo] = useState(todoList);
   const [sortedTodo, setSortedTodo] = useState([]);
 
   // to disable sorting temporarily
@@ -38,6 +36,9 @@ function App() {
 
       setSortedTodo(sortedList);
     }
+
+    // store todoList on local storage
+    localStorage.setItem("todo", JSON.stringify(todo));
   }, [todo, pauseSorting]);
 
   function handleAddItem(item) {
