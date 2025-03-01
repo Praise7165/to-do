@@ -20,7 +20,9 @@ function App() {
   const [day, setDay] = useState("today");
 
   // general todo
-  const [todo, setTodo] = useState(todoList);
+  const [todo, setTodo] = useState(
+    JSON.parse(localStorage.getItem("todo")) || []
+  );
   const [sortedTodo, setSortedTodo] = useState([]);
 
   // to disable sorting temporarily
