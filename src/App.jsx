@@ -3,18 +3,6 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import { useState, useEffect } from "react";
 
-let todoList = [
-  { pri: "today", action: "Go to school", completed: true, id: 1 },
-  { pri: "later", action: "Clean kitchen", completed: false, id: 2 },
-  { pri: "today", action: "Wear clothes", completed: false, id: 3 },
-  { pri: "later", action: "Cook rice", completed: true, id: 4 },
-  { pri: "today", action: "Move back home", completed: false, id: 5 },
-  { pri: "today", action: "Learn Javascript", completed: false, id: 9 },
-  { pri: "today", action: "Resolve issue at bank", completed: false, id: 8 },
-  { pri: "today", action: "Wake up by 4am", completed: false, id: 7 },
-  { pri: "later", action: "Visit vegas", completed: false, id: 6 },
-];
-
 function App() {
   const [action, setAction] = useState("");
   const [day, setDay] = useState("today");

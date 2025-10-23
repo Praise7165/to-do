@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import calendar from "../assets/calendar.svg";
 import checkbox from "../assets/checkbox.svg";
 import checked from "../assets/checked.svg";
@@ -21,17 +21,22 @@ export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
       <div className="card-header">
         <img src={calendar} alt="Calendar" className="svg-icon"></img>
         <h3>{day}</h3>
+
+        {/*
         {filterList.length > 0 ? (
           <span className="centered">{filterList.length}</span>
         ) : (
           ""
         )}
+          */}
+
+        {filterList.length > 0 && (
+          <span className="centered">{filterList.length}</span>
+        )}
       </div>
 
-      <div className={`card ${filterList.length < 1 && "empty-card"}`}>
-        {filterList.length < 1 ? (
-          <p>Nothing to do? Nice!!</p>
-        ) : (
+      <div className={`card ${filterList.length > 0 || "empty-card"}`}>
+        {filterList.length > 0 ? (
           <TodoList
             day={day}
             todo={todo}
@@ -39,6 +44,8 @@ export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
             deleteItem={deleteItem}
             deleteId={deleteId}
           />
+        ) : (
+          <p>Nothing to do? Nice!!</p>
         )}
       </div>
     </div>
