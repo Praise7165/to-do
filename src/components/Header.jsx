@@ -18,7 +18,7 @@ function Header({ day, action, onSubmit, onDayChange, onActionChange }) {
           later
         </option>
       </select>
-      <button type="submit">
+      <button className="btn-header" type="submit">
         <img src={add} alt="add" className="svg-icon"></img>
       </button>
     </form>
