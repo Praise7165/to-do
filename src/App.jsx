@@ -97,6 +97,7 @@ function App() {
     <main>
       <div className="container">
         <div className="wrapper">
+          <h1>🖲️To do app</h1>
           <Header
             day={day}
             action={action}
