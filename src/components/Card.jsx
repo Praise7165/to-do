@@ -62,7 +62,9 @@ function TodoList({ day, todo, handleClick, deleteItem, deleteId }) {
               key={item.id}
               className={`todo-item ${deleteId === item.id ? "swipe" : ""}`}
             >
-              <DragIcon />
+              <span>
+                <DragIcon />
+              </span>
 
               <div className="todo-span" onClick={() => handleClick(item.id)}>
                 <img src={item.completed ? checked : checkbox}></img>

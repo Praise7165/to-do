@@ -19,6 +19,14 @@ function App() {
   // to track deleted item
   const [deleteId, setDeleteId] = useState(null);
 
+  const date = new Date();
+
+  const todaysDate = date.toLocaleDateString().split("/");
+  const todaysTime = date.toLocaleTimeString();
+
+  console.log(todaysDate);
+  console.log(todaysTime);
+
   // sort todos whenever main todos array changes (unless paused)
   useEffect(() => {
     if (!pauseSorting) {
@@ -95,9 +103,12 @@ function App() {
 
   return (
     <main>
-      <div className="container">
-        <div className="wrapper">
-          <h1>🖲️To do app</h1>
+      <div className="container flex justify-center">
+        <div className="wrapper flex flex-col">
+          <div>
+            <h1>🖲️To do app</h1>
+            <p>{todaysDate}</p>
+          </div>
           <Header
             day={day}
             action={action}
@@ -119,6 +130,10 @@ function App() {
             deleteItem={deleteItem}
             deleteId={deleteId}
           />
+
+          <div>
+            <p>Last edited at {todaysTime}</p>
+          </div>
         </div>
       </div>
     </main>

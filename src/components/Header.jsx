@@ -3,13 +3,13 @@ import add from "../assets/add.svg";
 
 function Header({ day, action, onSubmit, onDayChange, onActionChange }) {
   return (
-    <form action="" method="get" onSubmit={onSubmit}>
+    <form className="flex" action="" method="get" onSubmit={onSubmit}>
       <input
         type="text"
         placeholder="Add a new task"
         value={action}
         onChange={onActionChange}
-      ></input>
+      />
       <select name="day" value={day} onChange={onDayChange}>
         <option value="today" key={1}>
           today

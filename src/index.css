@@ -25,3 +25,19 @@ li {
   justify-content: center;
   align-items: center;
 }
+
+/* UTILITIES */
+
+/* Display utilities */
+
+.flex {
+  display: flex !important;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
