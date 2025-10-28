@@ -23,18 +23,6 @@ export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
       <div className="card-header">
         <img src={calendar} alt="Calendar" className="svg-icon"></img>
         <h3>{day}</h3>
-
-        {/*
-        {filterList.length > 0 ? (
-          <span className="centered">{filterList.length}</span>
-        ) : (
-          ""
-        )}
-          */}
-
-        {filterList.length > 0 && (
-          <span className="centered">{filterList.length}</span>
-        )}
       </div>
 
       <div className={`card ${filterList.length > 0 || "empty-card"}`}>
