@@ -10,8 +10,6 @@ main {
 }
 
 .wrapper {
-  border: 1px solid green;
-  width: 100%;
   max-width: 25rem;
 }
 
@@ -34,15 +32,12 @@ button:hover {
 }
 
 .btn-header {
-  height: 100%;
   width: var(--size-2md);
 }
 
 input,
 select {
   border: 1px solid #d5dee3;
-  height: 100%;
-  outline: none;
   transition: border ease 0.3s;
 }
 
@@ -58,3 +53,33 @@ select:active {
 }
 
 /* Card Styles */
+
+h3 {
+  font-weight: 400;
+  color: #242526;
+}
+
+.task-no {
+  background: #ebe5e4;
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 0.75rem;
+  color: #242526;
+}
+
+.card {
+  background-color: white;
+  margin-top: var(--size-1rem);
+  min-height: 25rem;
+  border: 1px solid hsl(9, 15%, 90%);
+  padding: 1rem 1rem 1.25rem 0.5rem;
+}
+
+.card.empty-card {
+  color: #242526;
+}
+
+.empty-message {
+  width: 160px;
+  text-align: center;
+}

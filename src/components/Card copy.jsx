@@ -20,11 +20,6 @@ export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
   // console.log(todo);
   return (
     <div className="card-wrapper">
-      <div className="card-header">
-        <img src={calendar} alt="Calendar" className="svg-icon"></img>
-        <h3>{day}</h3>
-      </div>
-
       <div className={`card ${filterList.length > 0 || "empty-card"}`}>
         {filterList.length > 0 ? (
           <TodoList

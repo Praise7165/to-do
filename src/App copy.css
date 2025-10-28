@@ -16,35 +16,7 @@ form {
   margin-top: 2rem;
 }
 
-h3 {
-  display: inline-block;
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: #242526;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
-.card {
-  background-color: white;
-  margin-top: 1rem;
-  padding: 1rem 1rem 1.25rem 0.5rem;
-  min-height: 25rem;
-  border-radius: 0.624rem;
-  border: 1px solid hsl(9, 15%, 90%);
-}
-
-.card.empty-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #a7abad;
-}
-
 .empty-message {
-  width: 160px;
-  text-align: center;
-  color: hwb(200 63% 40%);
   gap: 1rem;
 }
 
@@ -58,21 +30,6 @@ h3 {
   flex-direction: column;
   gap: 0.6rem;
   position: relative;
-}
-
-.card-header {
-  display: flex;
-  margin: 0 auto;
-  width: fit-content;
-}
-
-.card-header span {
-  border-radius: 0.75rem;
-  background: #ebe5e4;
-  height: 1.5rem;
-  width: 1.5rem;
-  font-size: 0.75rem;
-  color: #242526;
 }
 
 .todo-item {

@@ -13,7 +13,7 @@ export default function Header() {
 function Input() {
   return (
     <input
-      className="bd-radius-sm pd-in-sm fs-1rem flex-grow"
+      className="bd-radius-sm pd-in-sm fs-1rem flex-grow full-height ot-none"
       type="text"
       placeholder="Add a new task"
       value=""
@@ -25,7 +25,7 @@ function Input() {
 function Select() {
   return (
     <select
-      className="bd-radius-sm pd-in-sm fs-1rem"
+      className="bd-radius-sm pd-in-sm fs-1rem full-height ot-none"
       name="day"
       value=""
       onChange=""
@@ -42,7 +42,10 @@ function Select() {
 
 function Button() {
   return (
-    <button className="btn-header bd-radius-sm fs-1rem" type="submit">
+    <button
+      className="btn-header bd-radius-sm fs-1rem full-height"
+      type="submit"
+    >
       <img src={add} alt="add"></img>
     </button>
   );

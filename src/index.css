@@ -16,6 +16,7 @@
   --size-sm: 0.25rem;
   --size-md: 0.5rem;
   --size-1rem: 1rem;
+  --size-1sm: 1.25rem;
   --size-1md: 1.5rem;
   --size-2rem: 2rem;
   --size-2md: 2.5rem;
@@ -36,10 +37,15 @@ img {
 
 /* Display utilities */
 
+.inline-block {
+  display: inline-block !important;
+}
+
 .flex {
   display: flex !important;
 }
 
+/* flex utilities */
 .justify-center {
   justify-content: center;
 }
@@ -62,6 +68,10 @@ img {
   gap: var(--size-sm);
 }
 
+.gap-1rem {
+  gap: var(--size-1rem);
+}
+
 .gap-3rem {
   gap: var(--size-3rem);
 }
@@ -71,9 +81,22 @@ img {
   padding-inline: var(--size-sm);
 }
 
+/** margin spacing**/
+.mg-in-sm {
+  margin-inline: var(--size-sm);
+}
+
+.mg-in-auto {
+  margin-inline: auto;
+}
+
 /* border utilities */
 .bd-radius-sm {
   border-radius: var(--size-sm);
+}
+
+.bd-radius-1rem {
+  border-radius: var(--size-1rem);
 }
 
 .ot-none {
@@ -83,4 +106,16 @@ img {
 /* typography utilities */
 .fs-1rem {
   font-size: var(--size-1rem);
+}
+.fs-1sm {
+  font-size: var(--size-1sm);
+}
+
+/* size utilities */
+.full-height {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
 }
