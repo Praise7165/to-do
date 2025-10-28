@@ -1,28 +1,49 @@
-// import svg for img tag
 import add from "../assets/add.svg";
 
-function Header({ day, action, onSubmit, onDayChange, onActionChange }) {
+export default function Header() {
   return (
-    <form className="flex" action="" method="get" onSubmit={onSubmit}>
-      <input
-        type="text"
-        placeholder="Add a new task"
-        value={action}
-        onChange={onActionChange}
-      />
-      <select name="day" value={day} onChange={onDayChange}>
-        <option value="today" key={1}>
-          today
-        </option>
-        <option value="later" key={2}>
-          later
-        </option>
-      </select>
-      <button className="btn-header" type="submit">
-        <img src={add} alt="add" className="svg-icon"></img>
-      </button>
+    <form className="flex items-center gap-sm">
+      <Input />
+      <Select />
+      <Button />
     </form>
   );
 }
 
-export default Header;
+function Input() {
+  return (
+    <input
+      className="bd-radius-sm pd-in-sm fs-1rem flex-grow"
+      type="text"
+      placeholder="Add a new task"
+      value=""
+      onChange=""
+    />
+  );
+}
+
+function Select() {
+  return (
+    <select
+      className="bd-radius-sm pd-in-sm fs-1rem"
+      name="day"
+      value=""
+      onChange=""
+    >
+      <option value="today" key={1}>
+        today
+      </option>
+      <option value="later" key={2}>
+        later
+      </option>
+    </select>
+  );
+}
+
+function Button() {
+  return (
+    <button className="btn-header bd-radius-sm fs-1rem" type="submit">
+      <img src={add} alt="add"></img>
+    </button>
+  );
+}

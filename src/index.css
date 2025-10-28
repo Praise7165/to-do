@@ -2,28 +2,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
-html {
+:root {
   scroll-behavior: smooth;
-}
-
-body {
   font-family: Inter, sans-serif;
   color: #5d6266;
   font-size: 16px;
   background-color: #f9f5f4;
+
+  /* Size scale */
+  --size-sm: 0.25rem;
+  --size-md: 0.5rem;
+  --size-1rem: 1rem;
+  --size-1md: 1.5rem;
+  --size-2rem: 2rem;
+  --size-2md: 2.5rem;
+  --size-3rem: 3rem;
+  --size-3md: 3.5rem;
 }
 
 li {
   list-style-type: none;
 }
 
-.centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+img {
+  max-width: 100%;
+  width: var(--size-1md);
 }
 
 /* UTILITIES */
@@ -44,4 +50,37 @@ li {
 
 .items-center {
   align-items: center;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* Space utilities */
+/** flex-gap spacing**/
+.gap-sm {
+  gap: var(--size-sm);
+}
+
+.gap-3rem {
+  gap: var(--size-3rem);
+}
+
+/** padding spacing**/
+.pd-in-sm {
+  padding-inline: var(--size-sm);
+}
+
+/* border utilities */
+.bd-radius-sm {
+  border-radius: var(--size-sm);
+}
+
+.ot-none {
+  outline: none;
+}
+
+/* typography utilities */
+.fs-1rem {
+  font-size: var(--size-1rem);
 }

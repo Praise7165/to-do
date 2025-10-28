@@ -2,10 +2,10 @@
 import calendar from "../assets/calendar.svg";
 import checkbox from "../assets/checkbox.svg";
 import checked from "../assets/checked.svg";
-import add from "../assets/add.svg";
 import DragIcon from "./DragIcon";
 import DeleteIcon from "./Delete";
 import EmptyIcon from "./EmptyIcon";
+import ButtonCard from "./ButtonCard";
 
 // sort task, so that completed task goes down.
 // todoList.sort((a, b) => a.completed - b.completed);
@@ -52,10 +52,7 @@ export default function Card({ day, todo, handleClick, deleteItem, deleteId }) {
               <EmptyIcon />
             </span>
             <p>Your todo for {day} is empty.</p>
-            <button className="btn-card flex items-center" type="submit">
-              <img src={add} alt="add" className="svg-icon"></img>
-              <span>Add a todo</span>
-            </button>
+            <ButtonCard />
           </div>
         )}
       </div>
