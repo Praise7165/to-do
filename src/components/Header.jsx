@@ -1,4 +1,6 @@
-import add from "../assets/add.svg";
+import Button from "./Button";
+import Input from "./Input";
+import Select from "./Select";
 
 export default function Header() {
   return (
@@ -7,46 +9,5 @@ export default function Header() {
       <Select />
       <Button />
     </form>
-  );
-}
-
-function Input() {
-  return (
-    <input
-      className="bd-radius-sm pd-in-sm fs-1rem flex-grow full-height ot-none"
-      type="text"
-      placeholder="Add a new task"
-      value=""
-      onChange=""
-    />
-  );
-}
-
-function Select() {
-  return (
-    <select
-      className="bd-radius-sm pd-in-sm fs-1rem full-height ot-none"
-      name="day"
-      value=""
-      onChange=""
-    >
-      <option value="today" key={1}>
-        today
-      </option>
-      <option value="later" key={2}>
-        later
-      </option>
-    </select>
-  );
-}
-
-function Button() {
-  return (
-    <button
-      className="btn-header bd-radius-sm fs-1rem full-height"
-      type="submit"
-    >
-      <img src={add} alt="add"></img>
-    </button>
   );
 }
