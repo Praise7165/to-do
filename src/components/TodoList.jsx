@@ -15,9 +15,7 @@ export default function TodoList({ taskList }) {
 function TodoItem({ todo }) {
   return (
     <li key={todo.id} className="todo-item flex items-center justofy-stretch">
-      <span>
-        <DragIcon />
-      </span>
+      <DragIcon />
 
       <TodoTask todo={todo} />
       {/*<span className="delete-icon">

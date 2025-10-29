@@ -1,4 +1,5 @@
 import EmptyIcon from "./EmptyIcon";
+import ButtonCard from "./ButtonCard";
 
 export default function EmptyMessage({ heading }) {
   return (
@@ -7,7 +8,7 @@ export default function EmptyMessage({ heading }) {
         <EmptyIcon />
       </span>
       <p className="fs-1rem">Your todo for {heading} is empty</p>
-      {/* <ButtonCard /> */}
+      <ButtonCard />
     </div>
   );
 }

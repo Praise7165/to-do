@@ -88,6 +88,12 @@ h3 {
   line-height: 1.5;
 }
 
+.btn-card {
+  width: fit-content;
+  height: 2.5rem;
+  margin-top: 2rem;
+}
+
 /* try to understand why this is relative */
 .card ul {
   position: relative;
@@ -117,4 +123,41 @@ h3 {
 
 .drag-icon {
   cursor: grab;
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    max-width: none;
+    padding-inline: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .wrapper {
+    max-width: auto;
+  }
+
+  form {
+    height: 3rem;
+  }
+
+  input::placeholder {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    margin-inline: -0.5rem;
+  }
 }

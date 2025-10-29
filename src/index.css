@@ -89,6 +89,13 @@ img {
   padding-inline: var(--size-sm);
 }
 
+.pd-in-1rem {
+  padding-inline: var(--size-1rem);
+}
+.pd-bl-1rem {
+  padding-block: var(--size-1rem);
+}
+
 /** margin spacing**/
 .mg-in-sm {
   margin-inline: var(--size-sm);
