@@ -50,6 +50,10 @@ img {
   justify-content: center;
 }
 
+.justify-stretch {
+  justify-content: stretch;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -66,6 +70,10 @@ img {
 /** flex-gap spacing**/
 .gap-sm {
   gap: var(--size-sm);
+}
+
+.gap-md {
+  gap: var(--size-md);
 }
 
 .gap-1rem {
@@ -93,6 +101,10 @@ img {
 /* border utilities */
 .bd-radius-sm {
   border-radius: var(--size-sm);
+}
+
+.bd-radius-md {
+  border-radius: var(--size-md);
 }
 
 .bd-radius-1rem {

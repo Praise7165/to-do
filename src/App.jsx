@@ -20,6 +20,10 @@ export default function App() {
           <Header priority={priority} todos={todos} />
           <TodoCard todos={todos} heading="Today" />
           <TodoCard todos={todos} heading="Later" />
+
+          <div>
+            <em>Last edited on 23rd monday, 02:43pm</em>
+          </div>
         </div>
       </div>
     </main>

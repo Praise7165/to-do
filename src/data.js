@@ -6,7 +6,7 @@ const todoList = [
     id: 1,
   },
   {
-    pri: "later",
+    pri: "Later",
     task: "Cook beans after work on thursday",
     completed: false,
     id: 2,
@@ -24,8 +24,8 @@ const todoList = [
     id: 4,
   },
   {
-    pri: "later",
-    task: "call mom and Engineer Aluko at work tomorrow",
+    pri: "Later",
+    task: "Call mom and Engineer Aluko at work tomorrow",
     completed: false,
     id: 5,
   },

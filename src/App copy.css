@@ -3,10 +3,6 @@
 }
 
 /* Header styles */
-form {
-  align-items: center;
-  gap: 0.5rem;
-}
 
 .btn-card {
   width: fit-content;
@@ -16,38 +12,8 @@ form {
   margin-top: 2rem;
 }
 
-.empty-message {
-  gap: 1rem;
-}
-
-.empty-message p {
-  line-height: 1.5;
-  font-size: 1.125rem;
-}
-
-.card ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  position: relative;
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  justify-content: stretch;
-  cursor: pointer;
-  transition: all 0.3s linear;
-}
-
 .swipe {
   transform: translateX(24px);
-}
-
-.todo-item:hover {
-  .path {
-    stroke: #131313;
-  }
 }
 
 .todo-item.dragging {
@@ -56,26 +22,6 @@ form {
   position: absolute;
   width: 100%;
   cursor: grabbing;
-}
-
-.todo-span {
-  margin-left: 0.25rem;
-  margin-right: 0.15rem;
-  flex-grow: 1;
-  padding: 0.5rem 0.75rem;
-  background-color: hsl(204, 33%, 97%);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.card img {
-  width: 18px;
-}
-
-.drag-icon {
-  cursor: grab;
 }
 
 .delete-icon {

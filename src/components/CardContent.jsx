@@ -1,17 +1,20 @@
 import EmptyMessage from "./EmptyMessage";
+import TodoList from "./TodoList";
 
-export default function CardContent({ emptyList, heading }) {
+// import DeleteIcon from "./Delete";
+
+export default function CardContent({ emptyList, heading, taskList }) {
   return (
     <div
       className={`card ${
         emptyList && "empty-card flex items-center justify-center "
       } bd-radius-1rem`}
     >
-      {emptyList ? <EmptyMessage heading={heading} /> : <TodoList />}
+      {emptyList ? (
+        <EmptyMessage heading={heading} />
+      ) : (
+        <TodoList taskList={taskList} />
+      )}
     </div>
   );
-}
-
-function TodoList() {
-  return;
 }

@@ -14,7 +14,11 @@ export default function TodoCard({ todos, heading }) {
   return (
     <div className="card-wrapper">
       <CardHeader heading={heading} taskNo={taskNo} />
-      <CardContent emptyList={emptyList} heading={heading} />
+      <CardContent
+        emptyList={emptyList}
+        heading={heading}
+        taskList={taskList}
+      />
     </div>
   );
 }

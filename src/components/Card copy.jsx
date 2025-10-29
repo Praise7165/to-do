@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import calendar from "../assets/calendar.svg";
-import checkbox from "../assets/checkbox.svg";
+
 import checked from "../assets/checked.svg";
 import DragIcon from "./DragIcon";
 import DeleteIcon from "./Delete";

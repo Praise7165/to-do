@@ -6,7 +6,7 @@ export default function EmptyMessage({ heading }) {
       <span>
         <EmptyIcon />
       </span>
-      <p>Your todo for {heading} is empty</p>
+      <p className="fs-1rem">Your todo for {heading} is empty</p>
       {/* <ButtonCard /> */}
     </div>
   );

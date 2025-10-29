@@ -83,3 +83,38 @@ h3 {
   width: 160px;
   text-align: center;
 }
+
+.empty-message p {
+  line-height: 1.5;
+}
+
+/* try to understand why this is relative */
+.card ul {
+  position: relative;
+}
+
+.todo-item {
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.todo-item:hover {
+  .path {
+    stroke: #131313;
+  }
+}
+
+.todo-span {
+  margin-left: 0.25rem;
+  margin-right: 0.15rem;
+  padding: 0.5rem 0.75rem;
+  background-color: hsl(204, 33%, 97%);
+}
+
+.card img {
+  width: 18px;
+}
+
+.drag-icon {
+  cursor: grab;
+}
