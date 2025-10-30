@@ -1,10 +1,10 @@
-export default function Select() {
+export default function Select({ priority, handlePriorityChange }) {
   return (
     <select
       className="bd-radius-sm pd-in-sm fs-1rem full-height ot-none"
       name="day"
-      value=""
-      onChange=""
+      value={priority}
+      onChange={(e) => handlePriorityChange(e)}
     >
       <option value="today" key={1}>
         today
