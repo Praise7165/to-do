@@ -39,11 +39,9 @@ export default function App() {
   function handleTaskStatus(id) {
     setTodos((todos) =>
       todos.map((todo) => {
-        todo.id == id ? { ...todo, completed: !todo.completed } : todo;
+        return todo.id == id ? { ...todo, completed: !todo.completed } : todo;
       })
     );
-
-    setTodos((todos) => todos.sort((a, b) => a.completed - b.completed));
   }
 
   return (
