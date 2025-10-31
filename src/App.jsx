@@ -36,6 +36,16 @@ export default function App() {
     setPriority("today");
   }
 
+  function handleTaskStatus(id) {
+    setTodos((todos) =>
+      todos.map((todo) => {
+        todo.id == id ? { ...todo, completed: !todo.completed } : todo;
+      })
+    );
+
+    setTodos((todos) => todos.sort((a, b) => a.completed - b.completed));
+  }
+
   return (
     <main>
       <div className="container flex justify-center">
@@ -52,8 +62,16 @@ export default function App() {
             handlePriorityChange={handlePriorityChange}
             handleAddTask={handleAddTask}
           />
-          <TodoCard todos={todos} heading="Today" />
-          <TodoCard todos={todos} heading="Later" />
+          <TodoCard
+            todos={todos}
+            heading="Today"
+            handleTaskStatus={handleTaskStatus}
+          />
+          <TodoCard
+            todos={todos}
+            heading="Later"
+            handleTaskStatus={handleTaskStatus}
+          />
 
           <div>
             <em>Last edited on 23rd monday, 02:43pm</em>

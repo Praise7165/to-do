@@ -3,7 +3,12 @@ import TodoList from "./TodoList";
 
 // import DeleteIcon from "./Delete";
 
-export default function CardContent({ emptyList, heading, taskList }) {
+export default function CardContent({
+  emptyList,
+  heading,
+  taskList,
+  handleTaskStatus,
+}) {
   return (
     <div
       className={`card ${
@@ -13,7 +18,7 @@ export default function CardContent({ emptyList, heading, taskList }) {
       {emptyList ? (
         <EmptyMessage heading={heading} />
       ) : (
-        <TodoList taskList={taskList} />
+        <TodoList taskList={taskList} handleTaskStatus={handleTaskStatus} />
       )}
     </div>
   );
