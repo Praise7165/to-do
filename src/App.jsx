@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import Header from "./components/Header";
+import InputForm from "./components/InputForm";
 import TodoCard from "./components/TodoCard";
 import todoList from "./data";
 
@@ -13,6 +13,11 @@ export default function App() {
   /* function to sort todo list */
   function sortTodos() {
     setTodos((todos) => [...todos].sort((a, b) => a.completed - b.completed));
+  }
+
+  function reset() {
+    setTask("");
+    setPriority("today");
   }
 
   /* sort todo list immediately on first render */
@@ -35,6 +40,9 @@ export default function App() {
   /* handle add task button click */
   function handleAddTask(e) {
     e.preventDefault();
+
+    if (!task) return;
+
     const newItem = {
       pri: priority[0].toLocaleUpperCase() + priority.slice(1),
       task: task[0].toLocaleUpperCase() + task.slice(1).toLocaleLowerCase(),
@@ -44,8 +52,9 @@ export default function App() {
 
     setTodos((todos) => [...todos, newItem]);
 
-    setTask("");
-    setPriority("today");
+    /* reset and sort */
+    reset();
+    setTimeout(sortTodos, 500);
   }
 
   /* handle toggle task */
@@ -63,12 +72,8 @@ export default function App() {
     <main>
       <div className="container flex justify-center">
         <div className="wrapper flex flex-col items-stretch gap-3rem full-width">
-          <div>
-            <em>Todays date</em>
-            <h1>🖲️To do app</h1>
-          </div>
-
-          <Header
+          <Header />
+          <InputForm
             task={task}
             priority={priority}
             handleTaskChange={handleTaskChange}
@@ -92,5 +97,14 @@ export default function App() {
         </div>
       </div>
     </main>
+  );
+}
+
+function Header() {
+  return (
+    <div style={{ marginInline: "auto" }}>
+      <em>Saturday, November 1, 2025</em>
+      <h1>🖲️To do app</h1>
+    </div>
   );
 }

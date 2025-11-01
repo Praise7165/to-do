@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./components/Header";
+import Header from "./components/InputForm";
 import Card from "./components/TodoCard";
 import { useState, useEffect } from "react";
 

@@ -2,7 +2,7 @@ import Button from "./Button";
 import Input from "./Input";
 import Select from "./Select";
 
-export default function Header({
+export default function InputForm({
   task,
   priority,
   handleTaskChange,
