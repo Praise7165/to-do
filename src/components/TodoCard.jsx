@@ -1,17 +1,18 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 
-export default function TodoCard({ todos, sort, heading, handleTaskStatus }) {
-  /* filter out task given priority */
-  let taskList = [...todos].filter((todo) => todo.pri === heading);
+export default function TodoCard({ todos, heading, handleTaskStatus }) {
+  // const [taskList, setTaskList] = useState(todos);
 
-  // .sort((a, b) => a.completed - b.completed);
+  let taskList = todos.filter((todo) => todo.pri === heading);
 
   /* get length of new task list */
+  // const taskNo = taskList.length;
   const taskNo = taskList.length;
 
   /* check if list is empty */
+  // const emptyList = taskNo < 1;
   const emptyList = taskNo < 1;
 
   return (

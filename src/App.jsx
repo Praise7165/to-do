@@ -8,9 +8,18 @@ export default function App() {
   const [todos, setTodos] = useState(todoList);
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("today");
+  const [sort, setSort] = useState(true);
 
-  /* to disable sort temporarily */
-  const [sort, setSort] = useState(false);
+  /* function to sort todo list */
+  function sortTodos() {
+    setTodos((todos) => [...todos].sort((a, b) => a.completed - b.completed));
+  }
+
+  /* sort todo list immediately on first render */
+  if (sort) {
+    sortTodos();
+    setSort(false);
+  }
 
   /* handle task input */
   function handleTaskChange(e) {
@@ -47,13 +56,7 @@ export default function App() {
       })
     );
 
-    setTimeout(
-      () =>
-        setTodos((todos) =>
-          [...todos].sort((a, b) => a.completed - b.completed)
-        ),
-      1000
-    );
+    setTimeout(sortTodos, 1000);
   }
 
   return (
@@ -74,13 +77,11 @@ export default function App() {
           />
           <TodoCard
             todos={todos}
-            sort={sort}
             heading="Today"
             handleTaskStatus={handleTaskStatus}
           />
           <TodoCard
             todos={todos}
-            sort={sort}
             heading="Later"
             handleTaskStatus={handleTaskStatus}
           />
