@@ -2,7 +2,7 @@ import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 
 export default function TodoCard({ todos, heading, handleTaskStatus }) {
-  let taskList = todos.filter((todo) => todo.pri === heading);
+  const taskList = todos.filter((todo) => todo.pri === heading);
 
   /* get length of new task list */
   const taskNo = taskList.length;
