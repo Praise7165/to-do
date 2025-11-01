@@ -10,6 +10,18 @@ export default function App() {
   const [priority, setPriority] = useState("today");
   const [sort, setSort] = useState(true);
 
+  /* time related stuff out of this file tomorrow */
+  const dateTime = new Date();
+  let todaysDate = dateTime.toDateString().split(" ");
+  let todaysTime = dateTime.toLocaleTimeString().split(" ");
+
+  const [day, month, date, year] = todaysDate;
+  let [time, media] = todaysTime;
+  time = time.slice(0, -3);
+
+  todaysDate = `{ ${day}, ${month} ${date}, ${year} }`;
+  todaysTime = `${time} ${media}`;
+
   /* function to sort todo list */
   function sortTodos() {
     setTodos((todos) => [...todos].sort((a, b) => a.completed - b.completed));
@@ -19,6 +31,8 @@ export default function App() {
     setTask("");
     setPriority("today");
   }
+
+  function updateEditTime() {}
 
   /* sort todo list immediately on first render */
   if (sort) {
@@ -72,7 +86,7 @@ export default function App() {
     <main>
       <div className="container flex justify-center">
         <div className="wrapper flex flex-col items-stretch gap-3rem full-width">
-          <Header />
+          <Header todaysDate={todaysDate} />
           <InputForm
             task={task}
             priority={priority}
@@ -91,29 +105,26 @@ export default function App() {
             handleTaskStatus={handleTaskStatus}
           />
 
-          <div>
-            <em>Last edited on 23rd monday, 02:43pm</em>
-          </div>
+          <Footer sort={sort} />
         </div>
       </div>
     </main>
   );
 }
 
-function Header() {
-  const dateTime = new Date();
-  let todaysDate = dateTime.toDateString().split(" ");
-
-  const [day, month, date, year] = todaysDate;
-
-  todaysDate = `{ ${day}, ${month} ${date}, ${year} }`;
-
-  // const todaysTime = date.toLocaleTimeString();
-
+function Header({ todaysDate }) {
   return (
     <div className="flex flex-col items-center">
       <code>{todaysDate}</code>
       <h1>🖲️To do app</h1>
+    </div>
+  );
+}
+
+function Footer({ sort }) {
+  return (
+    <div className="flex flex-col items-center">
+      {sort && <code>Last edited on 23rd monday, 02:43pm</code>}
     </div>
   );
 }
