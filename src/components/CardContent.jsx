@@ -1,16 +1,12 @@
-// import { useState } from "react";
-
 import EmptyMessage from "./EmptyMessage";
 import TodoList from "./TodoList";
 
 // import DeleteIcon from "./Delete";
 
-export default function CardContent({
-  emptyList,
-  heading,
-  taskList,
-  handleTaskStatus,
-}) {
+export default function CardContent({ heading, taskList, handleTaskStatus }) {
+  /* check if list is empty */
+  const emptyList = taskList.length < 1;
+
   return (
     <div
       className={`card ${
