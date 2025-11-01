@@ -19,14 +19,6 @@ function App() {
   // to track deleted item
   const [deleteId, setDeleteId] = useState(null);
 
-  const date = new Date();
-
-  const todaysDate = date.toLocaleDateString().split("/");
-  const todaysTime = date.toLocaleTimeString();
-
-  // console.log(todaysDate);
-  // console.log(todaysTime);
-
   // sort todos whenever main todos array changes (unless paused)
   useEffect(() => {
     if (!pauseSorting) {

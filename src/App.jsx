@@ -101,9 +101,18 @@ export default function App() {
 }
 
 function Header() {
+  const dateTime = new Date();
+  let todaysDate = dateTime.toDateString().split(" ");
+
+  const [day, month, date, year] = todaysDate;
+
+  todaysDate = `{ ${day}, ${month} ${date}, ${year} }`;
+
+  // const todaysTime = date.toLocaleTimeString();
+
   return (
-    <div style={{ marginInline: "auto" }}>
-      <em>Saturday, November 1, 2025</em>
+    <div className="flex flex-col items-center">
+      <code>{todaysDate}</code>
       <h1>🖲️To do app</h1>
     </div>
   );
