@@ -29,6 +29,31 @@ const todoList = [
     completed: false,
     id: 5,
   },
+
+  {
+    pri: "Today",
+    task: "fast till 12pm",
+    completed: true,
+    id: 6,
+  },
+  {
+    pri: "Today",
+    task: "Co to church",
+    completed: false,
+    id: 7,
+  },
+  {
+    pri: "Today",
+    task: "Eat by 6pm",
+    completed: false,
+    id: 8,
+  },
+  {
+    pri: "Today",
+    task: "cook rice and bean",
+    completed: false,
+    id: 9,
+  },
 ];
 
 export default todoList;

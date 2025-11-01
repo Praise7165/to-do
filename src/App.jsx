@@ -9,6 +9,9 @@ export default function App() {
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("today");
 
+  /* to disable sort temporarily */
+  const [sort, setSort] = useState(false);
+
   /* handle task input */
   function handleTaskChange(e) {
     setTask(e.target.value);
@@ -36,11 +39,20 @@ export default function App() {
     setPriority("today");
   }
 
+  /* handle toggle task */
   function handleTaskStatus(id) {
     setTodos((todos) =>
       todos.map((todo) => {
         return todo.id == id ? { ...todo, completed: !todo.completed } : todo;
       })
+    );
+
+    setTimeout(
+      () =>
+        setTodos((todos) =>
+          [...todos].sort((a, b) => a.completed - b.completed)
+        ),
+      1000
     );
   }
 
@@ -62,11 +74,13 @@ export default function App() {
           />
           <TodoCard
             todos={todos}
+            sort={sort}
             heading="Today"
             handleTaskStatus={handleTaskStatus}
           />
           <TodoCard
             todos={todos}
+            sort={sort}
             heading="Later"
             handleTaskStatus={handleTaskStatus}
           />
