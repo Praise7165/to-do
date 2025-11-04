@@ -5,12 +5,14 @@ import TodoCard from "./components/TodoCard";
 import todoList from "./data";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { updateTime } from "./time";
 
 export default function App() {
   const [todos, setTodos] = useState(todoList);
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("today");
   const [sort, setSort] = useState(true);
+  const [updatedTime, setUpdatedTime] = useState();
 
   /* function to sort todo list */
   function sortTodos() {
@@ -22,13 +24,11 @@ export default function App() {
     setPriority("today");
   }
 
-  /*
-  // sort todo list immediately on first render 
+  // sort todo list immediately on first render
   if (sort) {
     sortTodos();
     setSort(false);
   }
-  */
 
   /* handle task input */
   function handleTaskChange(e) {
@@ -56,9 +56,10 @@ export default function App() {
 
     setTodos((todos) => [...todos, newItem]);
 
-    /* reset and sort */
+    /* reset, sort and update time */
     reset();
     setTimeout(sortTodos, 500);
+    setUpdatedTime(updateTime());
   }
 
   /* handle toggle task */
@@ -70,6 +71,7 @@ export default function App() {
     );
 
     setTimeout(sortTodos, 1000);
+    setUpdatedTime(updateTime());
   }
 
   return (
@@ -95,7 +97,7 @@ export default function App() {
             handleTaskStatus={handleTaskStatus}
           />
 
-          <Footer />
+          <Footer time={updatedTime} />
         </div>
       </div>
     </main>

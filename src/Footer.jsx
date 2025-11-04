@@ -1,9 +1,7 @@
-import { updateTime } from "./time";
-
-export function Footer() {
+export function Footer({ time }) {
   return (
     <div className="flex flex-col items-center">
-      <code style={{ fontSize: ".75rem" }}>Last edited on {updateTime}</code>
+      <code style={{ fontSize: ".75rem" }}>{time}</code>
     </div>
   );
 }

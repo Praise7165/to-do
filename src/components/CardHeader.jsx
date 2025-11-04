@@ -2,7 +2,10 @@ import calendar from "../assets/calendar.svg";
 
 export default function CardHeader({ heading, taskNo }) {
   return (
-    <div className="flex mg-in-auto" style={{ width: "fit-content" }}>
+    <div
+      className="flex items-center mg-in-auto"
+      style={{ width: "fit-content" }}
+    >
       <img src={calendar} alt="calendar" />
       <Heading heading={heading} />
       {taskNo > 0 && <Tag taskNo={taskNo} />}
