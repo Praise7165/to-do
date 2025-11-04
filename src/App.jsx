@@ -3,24 +3,14 @@ import { useState } from "react";
 import InputForm from "./components/InputForm";
 import TodoCard from "./components/TodoCard";
 import todoList from "./data";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export default function App() {
   const [todos, setTodos] = useState(todoList);
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("today");
   const [sort, setSort] = useState(true);
-
-  /* time related stuff out of this file tomorrow */
-  const dateTime = new Date();
-  let todaysDate = dateTime.toDateString().split(" ");
-  let todaysTime = dateTime.toLocaleTimeString().split(" ");
-
-  const [day, month, date, year] = todaysDate;
-  let [time, media] = todaysTime;
-  time = time.slice(0, -3);
-
-  todaysDate = `{ ${day}, ${month} ${date}, ${year} }`;
-  todaysTime = `${time} ${media}`;
 
   /* function to sort todo list */
   function sortTodos() {
@@ -32,13 +22,13 @@ export default function App() {
     setPriority("today");
   }
 
-  function updateEditTime() {}
-
-  /* sort todo list immediately on first render */
+  /*
+  // sort todo list immediately on first render 
   if (sort) {
     sortTodos();
     setSort(false);
   }
+  */
 
   /* handle task input */
   function handleTaskChange(e) {
@@ -86,7 +76,7 @@ export default function App() {
     <main>
       <div className="container flex justify-center">
         <div className="wrapper flex flex-col items-stretch gap-3rem full-width">
-          <Header todaysDate={todaysDate} />
+          <Header />
           <InputForm
             task={task}
             priority={priority}
@@ -105,26 +95,9 @@ export default function App() {
             handleTaskStatus={handleTaskStatus}
           />
 
-          <Footer sort={sort} />
+          <Footer />
         </div>
       </div>
     </main>
-  );
-}
-
-function Header({ todaysDate }) {
-  return (
-    <div className="flex flex-col items-center">
-      <code>{todaysDate}</code>
-      <h1>🖲️To do app</h1>
-    </div>
-  );
-}
-
-function Footer({ sort }) {
-  return (
-    <div className="flex flex-col items-center">
-      {sort && <code>Last edited on 23rd monday, 02:43pm</code>}
-    </div>
   );
 }
