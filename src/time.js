@@ -22,5 +22,7 @@ export const updateTime = function () {
 
   time = time.slice(0, -3);
 
-  return (todaysTime = `Last edited on ${month} ${date}, ${year} at ${time} ${media}`);
+  return (todaysTime = `Last edited on ${month} ${date}, ${year} at ${time} ${String(
+    media
+  )}`);
 };
