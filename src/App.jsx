@@ -74,6 +74,13 @@ export default function App() {
     setUpdatedTime(updateTime());
   }
 
+  // delete todo
+  function handleDeleteItem(id) {
+    setTodos((todos) => {
+      todos.filter((todo) => todo.id !== id);
+    });
+  }
+
   return (
     <main>
       <div className="container flex justify-center">
@@ -95,6 +102,7 @@ export default function App() {
             todos={todos}
             heading="Later"
             handleTaskStatus={handleTaskStatus}
+            handleDeleteItem={handleDeleteItem}
           />
 
           <Footer time={updatedTime} />

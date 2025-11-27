@@ -1,7 +1,12 @@
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 
-export default function TodoCard({ todos, heading, handleTaskStatus }) {
+export default function TodoCard({
+  todos,
+  heading,
+  handleTaskStatus,
+  handleDeleteItem,
+}) {
   const taskList = todos.filter((todo) => todo.pri === heading);
 
   /* get length of new task list */
@@ -14,6 +19,7 @@ export default function TodoCard({ todos, heading, handleTaskStatus }) {
         heading={heading}
         taskList={taskList}
         handleTaskStatus={handleTaskStatus}
+        handleDeleteItem={handleDeleteItem}
       />
     </div>
   );

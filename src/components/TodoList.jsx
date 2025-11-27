@@ -1,6 +1,10 @@
 import TodoItem from "./TodoItem";
 
-export default function TodoList({ taskList, handleTaskStatus }) {
+export default function TodoList({
+  taskList,
+  handleTaskStatus,
+  handleDeleteItem,
+}) {
   return (
     <ul className="flex flex-col gap-md">
       {taskList.map((todo) => (
@@ -8,6 +12,7 @@ export default function TodoList({ taskList, handleTaskStatus }) {
           key={todo.id}
           todo={todo}
           handleTaskStatus={handleTaskStatus}
+          handleDeleteItem={handleDeleteItem}
         />
       ))}
     </ul>
