@@ -15,6 +15,7 @@
   background-color: #f9f5f4;
   line-height: 1.6;
   font-weight: 400;
+  user-select: none;
 
   /* Size scale */
   --size-sm: 0.25rem;

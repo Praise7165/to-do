@@ -111,10 +111,15 @@ h3 {
 }
 
 .todo-span {
-  margin-left: 0.25rem;
-  margin-right: 0.15rem;
   padding: 0.5rem 0.75rem;
   background-color: hsl(204, 33%, 97%);
+  z-index: 1;
+  transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+  user-select: none;
+}
+
+.move {
+  transform: translateX(-24px);
 }
 
 .card img {
