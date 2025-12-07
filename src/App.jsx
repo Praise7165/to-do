@@ -12,6 +12,7 @@ export default function App() {
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("today");
   const [sort, setSort] = useState(true);
+  const [selected, setSelected] = useState(null);
   const [updatedTime, setUpdatedTime] = useState();
 
   /* function to sort todo list */
@@ -75,7 +76,12 @@ export default function App() {
 
   // delete todo item
   function handleDeleteItem(id) {
-    setTodos((todos) => todos.filter((item) => item.id !== id));
+    setSelected(id);
+
+    setTimeout(() => {
+      setTodos((todos) => todos.filter((item) => item.id !== id));
+      setSelected(null);
+    }, 300);
   }
 
   return (
@@ -93,12 +99,14 @@ export default function App() {
           <TodoCard
             todos={todos}
             heading="Today"
+            selected={selected}
             handleTaskStatus={handleTaskStatus}
             handleDeleteItem={handleDeleteItem}
           />
           <TodoCard
             todos={todos}
             heading="Later"
+            selected={selected}
             handleTaskStatus={handleTaskStatus}
             handleDeleteItem={handleDeleteItem}
           />

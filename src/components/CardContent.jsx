@@ -6,6 +6,7 @@ import TodoList from "./TodoList";
 export default function CardContent({
   heading,
   taskList,
+  selected,
   handleTaskStatus,
   handleDeleteItem,
 }) {
@@ -23,6 +24,7 @@ export default function CardContent({
       ) : (
         <TodoList
           taskList={taskList}
+          selected={selected}
           handleTaskStatus={handleTaskStatus}
           handleDeleteItem={handleDeleteItem}
         />

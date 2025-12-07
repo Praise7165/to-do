@@ -4,6 +4,7 @@ import CardContent from "./CardContent";
 export default function TodoCard({
   todos,
   heading,
+  selected,
   handleTaskStatus,
   handleDeleteItem,
 }) {
@@ -18,6 +19,7 @@ export default function TodoCard({
       <CardContent
         heading={heading}
         taskList={taskList}
+        selected={selected}
         handleTaskStatus={handleTaskStatus}
         handleDeleteItem={handleDeleteItem}
       />

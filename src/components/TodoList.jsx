@@ -2,6 +2,7 @@ import TodoItem from "./TodoItem";
 
 export default function TodoList({
   taskList,
+  selected,
   handleTaskStatus,
   handleDeleteItem,
 }) {
@@ -11,6 +12,7 @@ export default function TodoList({
         <TodoItem
           key={todo.id}
           todo={todo}
+          selected={selected}
           handleTaskStatus={handleTaskStatus}
           handleDeleteItem={handleDeleteItem}
         />

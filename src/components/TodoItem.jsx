@@ -1,9 +1,19 @@
 import DeleteIcon from "./Delete";
 import TodoTask from "./TodoTask";
 
-export default function TodoItem({ todo, handleTaskStatus, handleDeleteItem }) {
+export default function TodoItem({
+  todo,
+  selected,
+  handleTaskStatus,
+  handleDeleteItem,
+}) {
   return (
-    <li key={todo.id} className="todo-item flex items-center justofy-stretch">
+    <li
+      key={todo.id}
+      className={`todo-item flex items-center justofy-stretch ${
+        todo.id === selected && "swipe"
+      }`}
+    >
       <TodoTask todo={todo} handleTaskStatus={handleTaskStatus} />
 
       <span
