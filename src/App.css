@@ -150,6 +150,10 @@ h3 {
   animation: all 0.3s ease-in-out;
 }
 
+.dragged {
+  opacity: 1 !important;
+}
+
 @media screen and (max-width: 960px) {
   .container {
     max-width: none;
