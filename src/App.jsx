@@ -37,7 +37,6 @@ export default function App() {
 
   /* handle priority change */
   function handlePriorityChange(e) {
-    // setPriority((priority) => priority || "later");
     setPriority(e.target.value);
   }
 
@@ -74,11 +73,9 @@ export default function App() {
     setUpdatedTime(updateTime());
   }
 
-  // delete todo
+  // delete todo item
   function handleDeleteItem(id) {
-    setTodos((todos) => {
-      todos.filter((todo) => todo.id !== id);
-    });
+    setTodos((todos) => todos.filter((item) => item.id !== id));
   }
 
   return (
@@ -97,6 +94,7 @@ export default function App() {
             todos={todos}
             heading="Today"
             handleTaskStatus={handleTaskStatus}
+            handleDeleteItem={handleDeleteItem}
           />
           <TodoCard
             todos={todos}
