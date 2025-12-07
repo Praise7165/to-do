@@ -7,6 +7,7 @@ export default function TodoCard({
   selected,
   handleTaskStatus,
   handleDeleteItem,
+  handleClear,
 }) {
   const taskList = todos.filter((todo) => todo.pri === heading);
 
@@ -15,7 +16,7 @@ export default function TodoCard({
 
   return (
     <div className="card-wrapper">
-      <CardHeader heading={heading} taskNo={taskNo} />
+      <CardHeader heading={heading} taskNo={taskNo} handleClear={handleClear} />
       <CardContent
         heading={heading}
         taskList={taskList}

@@ -82,6 +82,13 @@ export default function App() {
       setTodos((todos) => todos.filter((item) => item.id !== id));
       setSelected(null);
     }, 300);
+
+    setUpdatedTime(updateTime());
+  }
+
+  function handleClearAllTask(pri) {
+    setTodos((todos) => todos.filter((item) => item.pri !== pri));
+    setUpdatedTime(updateTime());
   }
 
   return (
@@ -102,6 +109,7 @@ export default function App() {
             selected={selected}
             handleTaskStatus={handleTaskStatus}
             handleDeleteItem={handleDeleteItem}
+            handleClear={handleClearAllTask}
           />
           <TodoCard
             todos={todos}
@@ -109,6 +117,7 @@ export default function App() {
             selected={selected}
             handleTaskStatus={handleTaskStatus}
             handleDeleteItem={handleDeleteItem}
+            handleClear={handleClearAllTask}
           />
 
           <Footer time={updatedTime} />

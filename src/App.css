@@ -35,6 +35,26 @@ button:hover {
   width: var(--size-2md);
 }
 
+.btn-clear {
+  background-color: transparent;
+  font-weight: 500;
+  padding-inline: 0.5rem;
+  color: #717374;
+  border: 1px solid #d5dee3;
+  border-radius: 0.5rem;
+}
+
+.btn-clear:hover {
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: whitesmoke;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+  animation: all 0.2s ease-in-out;
+}
+
 input,
 select {
   border: 1px solid #d5dee3;

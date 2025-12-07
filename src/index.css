@@ -59,6 +59,10 @@ img {
   justify-content: stretch;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .flex-col {
   flex-direction: column;
 }

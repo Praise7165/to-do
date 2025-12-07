@@ -1,14 +1,19 @@
 import calendar from "../assets/calendar.svg";
 
-export default function CardHeader({ heading, taskNo }) {
+export default function CardHeader({ heading, taskNo, handleClear }) {
   return (
-    <div
-      className="flex items-center mg-in-auto"
-      style={{ width: "fit-content" }}
-    >
-      <img src={calendar} alt="calendar" />
-      <Heading heading={heading} />
-      {taskNo > 0 && <Tag taskNo={taskNo} />}
+    <div className="flex justify-between">
+      <div
+        className="flex items-center mg-in-auto"
+        style={{ width: "fit-content" }}
+      >
+        <img src={calendar} alt="calendar" />
+        <Heading heading={heading} />
+        {taskNo > 0 && <Tag taskNo={taskNo} />}
+      </div>
+      <button className="btn-clear" onClick={() => handleClear(heading)}>
+        Clear all
+      </button>
     </div>
   );
 }
