@@ -1,14 +1,16 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputForm from "./components/InputForm";
 import TodoCard from "./components/TodoCard";
-import todoList from "./data";
+// import todoList from "./data";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { updateTime } from "./time";
 
 export default function App() {
-  const [todos, setTodos] = useState(todoList);
+  const [todos, setTodos] = useState(() => {
+    return JSON.parse(localStorage.getItem("todos"));
+  });
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("today");
   const [sort, setSort] = useState(true);
@@ -90,6 +92,10 @@ export default function App() {
     setTodos((todos) => todos.filter((item) => item.pri !== pri));
     setUpdatedTime(updateTime());
   }
+
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <main>

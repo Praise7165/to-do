@@ -11,6 +11,7 @@ function App() {
   const [todo, setTodo] = useState(
     JSON.parse(localStorage.getItem("todo")) || []
   );
+
   const [sortedTodo, setSortedTodo] = useState([]);
 
   // to disable sorting temporarily
